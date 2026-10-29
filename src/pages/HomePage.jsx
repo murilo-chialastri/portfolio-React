@@ -94,11 +94,10 @@ export default function HomePage() {
       <section id="contato" className="contact-section section-pad">
         <div className="section-heading">
           <Reveal>
-            <p className="eyebrow">04 / Vamos conversar</p>
+            <p className="eyebrow">Vamos conversar</p>
             <h2>
-              Uma ideia?
-              <br />
-              <span className="muted">Me conta.</span>
+              Entre em <br />
+              <span className="muted">contato</span>
             </h2>
           </Reveal>
           <Reveal delay={0.16} className="section-aside">

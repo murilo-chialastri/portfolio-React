@@ -140,7 +140,7 @@ export default function DashboardPage() {
                     >
                       {message.responded && <Icon name="check" />}
                       {message.responded
-                        ? 'Marcar como pendente'
+                        ? 'Respondido'
                         : 'Marcar como respondida'}
                     </Button>
                   </div>
@@ -196,6 +196,7 @@ export default function DashboardPage() {
                       </p>
                     </div>
                     <Button
+                      variant={selected ? 'primary' : 'default'}
                       aria-pressed={selected}
                       disabled={updateFeatured.isPending}
                       onClick={() =>
@@ -227,6 +228,7 @@ export default function DashboardPage() {
                     </p>
                   </div>
                   <Button
+                    variant="primary"
                     disabled={updateFeatured.isPending}
                     onClick={() =>
                       updateFeatured.mutate({
