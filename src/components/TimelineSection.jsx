@@ -5,52 +5,57 @@ import Icon from './ui/Icon'
 import Reveal from './ui/Reveal'
 import './TimelineSection.css'
 
-function TimelineEntry({ entry, index }) {
-  const chapter = String(index + 1).padStart(2, '0')
+function TimelineEvent({ event }) {
+  return (
+    <article
+      className={`timeline-event${event.image ? '' : ' timeline-event--text-only'}`}
+      aria-labelledby={`timeline-${event.id}`}
+    >
+      <Reveal className="timeline-copy">
+        <h3 id={`timeline-${event.id}`}>{event.title}</h3>
+        <p>{event.description}</p>
+      </Reveal>
+      {event.image && (
+        <Reveal className="timeline-media" delay={0.12}>
+          <figure>
+            <div className="timeline-photo">
+              <img
+                src={event.image.src}
+                alt={event.image.alt}
+                width={event.image.width}
+                height={event.image.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            {event.image.caption && (
+              <figcaption>{event.image.caption}</figcaption>
+            )}
+          </figure>
+        </Reveal>
+      )}
+    </article>
+  )
+}
 
+function TimelineEntry({ entry, index }) {
   return (
     <li className="timeline-entry">
       <div className="timeline-marker">
-        <time dateTime={entry.year}>{entry.year}</time>
+        <time dateTime={entry.id}>
+          <span>{entry.month}</span> <span>{entry.year}</span>
+        </time>
       </div>
-      <Reveal className="timeline-copy">
-        <p className="eyebrow">Capítulo {chapter}</p>
-        <h3>{entry.title || `Registros de ${entry.year}`}</h3>
-        <p>
-          {entry.description ||
-            'As histórias e os aprendizados deste ano serão compartilhados aqui em breve.'}
-        </p>
-      </Reveal>
-      <Reveal className="timeline-media" delay={0.12}>
-        <figure>
-          {entry.image ? (
-            <>
-              <div className="timeline-photo">
-                <img
-                  src={entry.image.src}
-                  alt={entry.image.alt}
-                  width={entry.image.width}
-                  height={entry.image.height}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              {entry.image.caption && (
-                <figcaption>{entry.image.caption}</figcaption>
-              )}
-            </>
-          ) : (
-            <>
-              <div className="timeline-placeholder" aria-hidden="true">
-                <span className="timeline-frame-corner" />
-                <span className="timeline-frame-number">{chapter}</span>
-                <span className="eyebrow">Memórias em construção</span>
-              </div>
-              <figcaption>Fotografia de {entry.year} em breve.</figcaption>
-            </>
-          )}
-        </figure>
-      </Reveal>
+      <div className="timeline-events">
+        <Reveal>
+          <p className="eyebrow">
+            Capítulo {String(index + 1).padStart(2, '0')}
+          </p>
+        </Reveal>
+        {entry.events.map((event) => (
+          <TimelineEvent key={event.id} event={event} />
+        ))}
+      </div>
     </li>
   )
 }
