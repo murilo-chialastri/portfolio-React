@@ -1,37 +1,32 @@
-import { useState } from 'react'
 import { Link } from 'react-router'
 import { useProjects, useFeaturedProjects } from '../hooks/useProjects'
-import ProjectCard from './ProjectCard'
+import ProjectCarousel from './ProjectCarousel'
 import { EmptyState, ErrorState, Loading } from './ui/AsyncState'
 import Button from './ui/Button'
 import Icon from './ui/Icon'
+import Reveal from './ui/Reveal'
 
 export default function ProjectsSection() {
   const projects = useProjects()
   const featured = useFeaturedProjects()
-  const [index, setIndex] = useState(0)
   const availableFeatured = (featured.data || [])
     .map((item) => projects.data?.find((repo) => repo.id === item.repo_id))
     .filter(Boolean)
   const selected = availableFeatured.length
     ? availableFeatured
     : projects.data?.slice(0, 6) || []
-  const current = Math.min(index, Math.max(0, selected.length - 1))
-  function move(direction) {
-    setIndex((value) => (value + direction + selected.length) % selected.length)
-  }
   return (
     <section id="projetos" className="projects-section section-pad">
       <div className="section-heading">
-        <div>
+        <Reveal>
           <p className="eyebrow">02 / Trabalho em prática</p>
           <h2>
             Ideias que
             <br />
             <span className="muted">viraram código.</span>
           </h2>
-        </div>
-        <div className="section-aside">
+        </Reveal>
+        <Reveal className="section-aside" delay={0.16}>
           <p>
             Projetos, experimentos e aprendizados.
             <br />
@@ -40,7 +35,7 @@ export default function ProjectsSection() {
           <Link className="text-link" to="/projetos">
             Explorar todos <Icon name="arrow" size={18} />
           </Link>
-        </div>
+        </Reveal>
       </div>
       {projects.isPending || featured.isPending ? (
         <Loading cards />
@@ -60,52 +55,9 @@ export default function ProjectsSection() {
           Os repositórios públicos aparecerão aqui.
         </EmptyState>
       ) : (
-        <>
-          <div
-            className="project-carousel"
-            aria-roledescription="carrossel"
-            aria-label="Projetos em destaque"
-          >
-            <div className="carousel-grid">
-              {[0, 1, 2].slice(0, selected.length).map((offset) => {
-                const repoIndex = (current + offset) % selected.length
-                return (
-                  <ProjectCard
-                    key={selected[repoIndex].id}
-                    repo={selected[repoIndex]}
-                    index={repoIndex}
-                  />
-                )
-              })}
-            </div>
-          </div>
-          <div className="carousel-controls">
-            <p className="eyebrow" aria-live="polite">
-              {String(current + 1).padStart(2, '0')}{' '}
-              <span className="muted">
-                / {String(selected.length).padStart(2, '0')}
-              </span>
-            </p>
-            <div>
-              <Button
-                variant="icon"
-                aria-label="Projeto anterior"
-                onClick={() => move(-1)}
-                disabled={selected.length < 2}
-              >
-                <Icon name="left" />
-              </Button>
-              <Button
-                variant="icon"
-                aria-label="Próximo projeto"
-                onClick={() => move(1)}
-                disabled={selected.length < 2}
-              >
-                <Icon name="right" />
-              </Button>
-            </div>
-          </div>
-        </>
+        <Reveal delay={0.2}>
+          <ProjectCarousel projects={selected} />
+        </Reveal>
       )}
     </section>
   )

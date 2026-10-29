@@ -7,6 +7,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import { AuthProvider } from './context/AuthContext'
 import { queryClient } from './lib/query-client'
 import ErrorBoundary from './components/ui/ErrorBoundary'
+import SmoothScroll from './components/SmoothScroll'
 import './index.css'
 import App from './App.jsx'
 
@@ -18,7 +19,9 @@ createRoot(document.getElementById('root')).render(
           <AuthProvider>
             <BrowserRouter>
               <MotionConfig reducedMotion="user">
-                <App />
+                <SmoothScroll>
+                  <App />
+                </SmoothScroll>
               </MotionConfig>
             </BrowserRouter>
           </AuthProvider>

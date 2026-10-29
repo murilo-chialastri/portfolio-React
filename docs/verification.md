@@ -2,7 +2,9 @@
 
 `npm run check` valida formatação, lint, testes React/HTTP e build. A suíte cobre validação por campo, envio duplicado, falha sem falso sucesso, visitante sem login, conta sem privilégio e administrador autorizado.
 
-Resultado final da suíte: **37 testes aprovados**, sendo 18 no frontend e 19 no handler HTTP do contato.
+Resultado após a atualização das animações em 29/10/2026: **46 testes aprovados**, sendo 27 no frontend e 19 no handler HTTP do contato. Formatação, lint e build aprovados por `npm run check`.
+
+Os novos testes cobrem carrossel (botões, teclado/foco, seleção lateral, identidade após atualização, conteúdo inerte, arraste e cancelamento) e painéis do Sobre (progresso, foco, teclado e layout sem sticky). A comparação das animações usa os valores do código público do protótipo. A inspeção visual nesta alteração foi bloqueada pela ferramenta de navegador; não houve nova medição Lighthouse. Detalhes em [animações](animations.md).
 
 Os testes HTTP simulam Supabase/Resend sem rede ou credenciais. `supabase/tests/security.sql` exige banco descartável. Esses testes não substituem o primeiro teste real após ativar os serviços.
 
