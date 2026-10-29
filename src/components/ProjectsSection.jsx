@@ -19,7 +19,7 @@ export default function ProjectsSection() {
     <section id="projetos" className="projects-section section-pad">
       <div className="section-heading">
         <Reveal>
-          <p className="eyebrow">02 / Trabalho em prática</p>
+          <p className="eyebrow">03 / Trabalho em prática</p>
           <h2>
             Ideias que
             <br />

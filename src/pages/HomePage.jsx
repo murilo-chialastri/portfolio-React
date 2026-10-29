@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { Link } from 'react-router'
 import AboutSection from '../components/AboutSection'
+import TimelineSection from '../components/TimelineSection'
 import ProjectsSection from '../components/ProjectsSection'
 import ContactForm from '../components/ContactForm'
 import Icon from '../components/ui/Icon'
@@ -88,11 +89,12 @@ export default function HomePage() {
         <span className="hero-side-note">Lógica. Curiosidade. Código.</span>
       </section>
       <AboutSection />
+      <TimelineSection />
       <ProjectsSection />
       <section id="contato" className="contact-section section-pad">
         <div className="section-heading">
           <Reveal>
-            <p className="eyebrow">03 / Vamos conversar</p>
+            <p className="eyebrow">04 / Vamos conversar</p>
             <h2>
               Uma ideia?
               <br />

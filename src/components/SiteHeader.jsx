@@ -9,6 +9,7 @@ import Icon from './ui/Icon'
 const links = [
   ['home', 'Início'],
   ['sobre', 'Sobre mim'],
+  ['trajetoria', 'Trajetória'],
   ['projetos', 'Projetos'],
   ['contato', 'Contato'],
 ]

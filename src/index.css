@@ -1377,6 +1377,9 @@ dd {
 .menu-popup nav a:nth-child(4) {
   animation-delay: 0.21s;
 }
+.menu-popup nav a:nth-child(5) {
+  animation-delay: 0.26s;
+}
 @keyframes menu-link-in {
   from {
     opacity: 0;
