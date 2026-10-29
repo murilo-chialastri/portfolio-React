@@ -15,6 +15,13 @@ export default function SiteFooter() {
         >
           GitHub <Icon name="arrow" size={14} />
         </a>
+        <a
+          href="https://www.linkedin.com/in/murilo-castro-chialastri-235081382/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn <Icon name="arrow" size={14} />
+        </a>
         <a href={`mailto:${config.email}`}>
           E-mail <Icon name="arrow" size={14} />
         </a>
