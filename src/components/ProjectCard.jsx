@@ -7,6 +7,11 @@ const covers = {
   'pokedex-inicial': '/images/projeto-03.webp',
   'menu-interativo-projeto-terravis': '/images/projeto-01.webp',
   opticode: '/images/projeto-02.webp',
+  'logica-python-1': '/images/logica-python.webp',
+  'logica-python-2': '/images/logica-python.webp',
+  test_rpg_create: '/images/rpg-java.webp',
+  'sprint-jovi-python': '/images/sprint-jovi-python.webp',
+  'portfolio-react': '/images/portfolio-react.webp',
 }
 
 export default function ProjectCard({ repo, index = 0 }) {
