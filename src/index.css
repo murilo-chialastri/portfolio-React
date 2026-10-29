@@ -334,7 +334,6 @@ textarea {
   aspect-ratio: 1;
   width: 100%;
   border-radius: 4px 4px 40px 4px;
-  filter: grayscale(1);
 }
 .hero-photo figcaption {
   display: flex;
@@ -400,7 +399,6 @@ textarea {
   width: 100%;
   aspect-ratio: 4/5;
   max-height: 570px;
-  filter: grayscale(1);
   border-radius: 4px 4px 80px 4px;
 }
 .photo-caption {
