@@ -376,7 +376,7 @@ export function createContactHandler({
         503,
         {
           error:
-            'Não foi possível confirmar o envio. Sua mensagem pode ter sido salva. Aguarde e tente novamente sem alterar os campos.',
+            'Não foi possível confirmar o envio. Sua mensagem pode estar salva ou enviada. Aguarde e tente novamente sem alterar os campos.',
         },
         { 'Retry-After': '90' },
       )
