@@ -1,5 +1,7 @@
 # Capas dos projetos
 
+O repositório `portfolio-React` usa `/images/hero.webp` como capa. A conversão de `portfolio-react.png` abaixo permanece disponível, mas não é usada no card.
+
 As quatro imagens fornecidas em `public/images` foram convertidas para WebP com orientação automática, largura máxima de 1000 pixels, proporção preservada e qualidade 78.
 
 | Imagem original          | Capa WebP                 | Repositório                           |

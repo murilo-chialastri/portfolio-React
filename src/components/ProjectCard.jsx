@@ -11,7 +11,7 @@ const covers = {
   'logica-python-2': '/images/logica-python.webp',
   test_rpg_create: '/images/rpg-java.webp',
   'sprint-jovi-python': '/images/sprint-jovi-python.webp',
-  'portfolio-react': '/images/portfolio-react.webp',
+  'portfolio-react': '/images/hero.webp',
 }
 
 export default function ProjectCard({ repo, index = 0 }) {
