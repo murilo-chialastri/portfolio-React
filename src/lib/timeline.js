@@ -45,8 +45,8 @@ export const timelineEntries = [
           'Iniciei minha formação em Engenharia de Software. O primeiro semestre fluiu com tranquilidade, pois aproveitei a base que construí estudando antes de entrar na faculdade.',
         image: {
           src: '/images/timeline-inicio-fiap.webp',
-          alt: 'Murilo e um colega em uma selfie no espelho de um elevador, no início da FIAP.',
-          width: 720,
+          alt: 'Letreiro vermelho da FIAP na parede do campus, iluminado pela luz do sol.',
+          width: 960,
           height: 1280,
           caption: 'O começo da formação na FIAP.',
         },

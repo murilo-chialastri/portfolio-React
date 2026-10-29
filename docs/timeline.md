@@ -21,7 +21,7 @@ Cada grupo tem `id` no formato `AAAA-MM`, `month`, `year` e `events`. Cada event
 - Preserva Josefin Sans, Lexend, tokens dos temas claro/escuro, `Reveal`, `Icon` e o progresso de rolagem com `useScroll`.
 - O eixo fica à esquerda para acomodar meses completos e vários eventos por mês. Em desktop, texto e imagem dividem o espaço à direita; registros sem foto usam somente texto, sem molduras provisórias.
 - As datas ficam sticky em desktop. Abaixo de 768 px, cada evento mostra texto seguido de foto e as datas ficam estáticas. Abaixo de 480 px, mês e ano aparecem em linha sobre o conteúdo, com um marcador pequeno, liberando espaço para leitura.
-- As quatro fotos têm versões WebP locais, proporção original, dimensões declaradas, descrição alternativa, legenda e carregamento tardio. As versões usadas pela seção somam aproximadamente 253 KiB. O filtro monocromático preserva a identidade visual. Fotos verticais têm altura máxima de 560 px, sem corte fixo para caber em uma moldura horizontal.
+- As quatro fotos têm versões WebP locais, proporção original, dimensões declaradas, descrição alternativa, legenda e carregamento tardio. As versões usadas pela seção somam aproximadamente 253 KiB na versão inicial. As fotos preservam suas cores originais. Fotos verticais têm altura máxima de 560 px, sem corte fixo para caber em uma moldura horizontal.
 - A ordem de leitura existe no HTML: lista ordenada de meses e artigos identificados pelos títulos dos eventos. O layout não depende de arrastar, passar o mouse ou rolagem travada.
 - Com movimento reduzido, as datas deixam de ser sticky, a linha fica preenchida, as entradas são exibidas sem transição e o zoom das imagens é desativado.
 - O encerramento permanece aberto, sem datas futuras inventadas.
@@ -31,7 +31,7 @@ Cada grupo tem `id` no formato `AAAA-MM`, `month`, `year` e `events`. Cada event
 | Arquivo fornecido em `public/images` | Versão usada na seção            | Dimensões  |
 | ------------------------------------ | -------------------------------- | ---------- |
 | `formatura 2025.JPEG`                | `timeline-formatura.webp`        | 960 × 540  |
-| `comeco da fiap.JPEG`                | `timeline-inicio-fiap.webp`      | 720 × 1280 |
+| `inicio fiap.JPEG`                   | `timeline-inicio-fiap.webp`      | 960 × 1280 |
 | `hackathon openIA.jpg`               | `timeline-hackathon-openai.webp` | 960 × 640  |
 | `next 2026.JPEG`                     | `timeline-fiap-next.webp`        | 720 × 960  |
 
@@ -44,3 +44,5 @@ As versões foram geradas com o Sharp já instalado, aplicando orientação auto
 A conferência visual em navegador não foi concluída: o host de acesso ao navegador está indisponível e a tentativa de captura do Opera expirou. Responsividade, sticky e animações precisam de conferência visual; as regras CSS não substituem essa validação. Não houve medição Lighthouse, deploy, push ou verificação de serviços externos nesta alteração.
 
 Documentação oficial consultada para a organização das listas e suas chaves estáveis: [React: Rendering Lists](https://react.dev/learn/rendering-lists).
+
+A foto de início na FIAP foi substituída pelo arquivo `inicio fiap.JPEG`, convertido com orientação automática e qualidade 80 para `timeline-inicio-fiap.webp` (960 × 1280, aproximadamente 79 KiB). O texto alternativo foi atualizado para descrever o letreiro da instituição.
