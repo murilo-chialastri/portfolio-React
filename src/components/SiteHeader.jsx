@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog } from '@base-ui/react/dialog'
 import { Link } from 'react-router'
+import { useLenis } from 'lenis/react'
 import { useTheme } from '../context/theme'
 import Button from './ui/Button'
 import Icon from './ui/Icon'
@@ -15,6 +16,12 @@ const links = [
 export default function SiteHeader() {
   const [open, setOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const lenis = useLenis()
+  useEffect(() => {
+    if (!open || !lenis) return
+    lenis.stop()
+    return () => lenis.start()
+  }, [open, lenis])
   return (
     <header className="site-header">
       <Link

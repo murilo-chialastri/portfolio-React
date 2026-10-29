@@ -23,7 +23,7 @@ it('mantém projetos públicos na home quando todos os destaques ficaram indispo
       <ProjectsSection />
     </MemoryRouter>,
   )
-  expect(screen.getByText('Projeto público')).toBeInTheDocument()
+  expect(screen.getByRole('article')).toHaveTextContent('Projeto público')
   expect(
     screen.queryByText('Nenhum projeto disponível'),
   ).not.toBeInTheDocument()
