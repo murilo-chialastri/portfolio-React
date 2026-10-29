@@ -32,3 +32,5 @@ Testes automatizados cobrem navegação circular, teclado e foco, seleção late
 A ferramenta de inspeção visual encerrou a sessão por não conseguir determinar com segurança a URL atual do navegador no Windows. A comparação foi feita pelo código público da referência; não foi possível confirmar equivalência visual quadro a quadro, em navegador real ou aparelho móvel nesta alteração. Não foi executada nova medição Lighthouse nem feito deploy.
 
 Documentação consultada: [Motion: scroll](https://motion.dev/docs/react-scroll-animations), [Base UI: animação](https://base-ui.com/react/handbook/animation), [Base UI: Tabs](https://base-ui.com/react/components/tabs) e [Lenis](https://github.com/darkroomengineering/lenis).
+
+O nome do projeto entre as setas do carrossel é um link para a página interna de detalhes do repositório ativo. Usa a mesma rota dos cards e permite ativação pelo teclado, preservando a aparência da cápsula e o anúncio da seleção.

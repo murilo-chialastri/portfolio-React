@@ -5,7 +5,7 @@ import ProjectsSection from '../src/components/ProjectsSection'
 
 vi.mock('../src/hooks/useProjects', () => ({
   useProjects: () => ({
-    data: [{ id: 1, name: 'Projeto público' }],
+    data: [{ id: 1, name: 'Projeto público', owner: { login: 'autor' } }],
     isPending: false,
   }),
   useFeaturedProjects: () => ({
@@ -24,6 +24,10 @@ it('mantém projetos públicos na home quando todos os destaques ficaram indispo
     </MemoryRouter>,
   )
   expect(screen.getByRole('article')).toHaveTextContent('Projeto público')
+  expect(screen.getByRole('link', { name: /Projeto público/ })).toHaveAttribute(
+    'href',
+    '/projetos/autor/Projeto%20p%C3%BAblico',
+  )
   expect(
     screen.queryByText('Nenhum projeto disponível'),
   ).not.toBeInTheDocument()

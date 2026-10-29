@@ -1,6 +1,8 @@
 import { useId, useLayoutEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
+import { Link } from 'react-router'
 import { carouselPosition, wrapIndex } from '../lib/carousel'
+import { projectPath } from '../lib/format'
 import ProjectCard from './ProjectCard'
 import Button from './ui/Button'
 import Icon from './ui/Icon'
@@ -220,7 +222,12 @@ export default function ProjectCarousel({ projects }) {
         >
           <Icon name="left" />
         </Button>
-        <p className="carousel-pill" aria-live="polite" aria-atomic="true">
+        <Link
+          className="carousel-pill"
+          to={projectPath(projects[current])}
+          aria-live="polite"
+          aria-atomic="true"
+        >
           <span key={projects[current].id}>
             {projects[current].name.replaceAll('-', ' ')}
           </span>
@@ -228,7 +235,7 @@ export default function ProjectCarousel({ projects }) {
             {' '}
             — {current + 1} de {projects.length}
           </span>
-        </p>
+        </Link>
         <Button
           variant="icon"
           aria-label="Próximo projeto"
