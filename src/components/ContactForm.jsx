@@ -97,6 +97,7 @@ export default function ContactForm() {
               id={`contact-${name}`}
               name={name}
               required
+              disabled={mutation.isPending}
               aria-invalid={Boolean(errors[name])}
               aria-describedby={errors[name] ? `${name}-error` : undefined}
               {...props}

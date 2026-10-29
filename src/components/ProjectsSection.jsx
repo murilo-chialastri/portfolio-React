@@ -10,10 +10,11 @@ export default function ProjectsSection() {
   const projects = useProjects()
   const featured = useFeaturedProjects()
   const [index, setIndex] = useState(0)
-  const selected = featured.data?.length
-    ? featured.data
-        .map((item) => projects.data?.find((repo) => repo.id === item.repo_id))
-        .filter(Boolean)
+  const availableFeatured = (featured.data || [])
+    .map((item) => projects.data?.find((repo) => repo.id === item.repo_id))
+    .filter(Boolean)
+  const selected = availableFeatured.length
+    ? availableFeatured
     : projects.data?.slice(0, 6) || []
   const current = Math.min(index, Math.max(0, selected.length - 1))
   function move(direction) {

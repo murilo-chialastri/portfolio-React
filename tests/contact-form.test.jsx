@@ -52,6 +52,9 @@ describe('Envio do contato', () => {
       expect(screen.getByRole('button', { name: /Enviando/ })).toBeDisabled(),
     )
     expect(sendContact).toHaveBeenCalledTimes(1)
+    for (const name of ['Seu nome', 'Seu e-mail', 'Assunto', 'Mensagem']) {
+      expect(screen.getByLabelText(name)).toBeDisabled()
+    }
     resolve({ ok: true })
     expect(await screen.findByRole('status')).toHaveTextContent(
       'Mensagem enviada!',
