@@ -14,6 +14,7 @@ import {
 import { requireBackend } from '../services/supabase'
 import { formatDate } from '../lib/format'
 import Button from '../components/ui/Button'
+import Icon from '../components/ui/Icon'
 import { EmptyState, ErrorState, Loading } from '../components/ui/AsyncState'
 import { config } from '../lib/config'
 
@@ -123,6 +124,12 @@ export default function DashboardPage() {
                       Responder por e-mail
                     </a>
                     <Button
+                      variant={message.responded ? 'primary' : 'default'}
+                      aria-label={
+                        message.responded
+                          ? 'Respondido. Marcar como pendente'
+                          : undefined
+                      }
                       disabled={updateMessage.isPending}
                       onClick={() =>
                         updateMessage.mutate({
@@ -131,8 +138,9 @@ export default function DashboardPage() {
                         })
                       }
                     >
+                      {message.responded && <Icon name="check" />}
                       {message.responded
-                        ? 'Marcar como pendente'
+                        ? 'Respondido'
                         : 'Marcar como respondida'}
                     </Button>
                   </div>
@@ -188,6 +196,7 @@ export default function DashboardPage() {
                       </p>
                     </div>
                     <Button
+                      variant={selected ? 'primary' : 'default'}
                       aria-pressed={selected}
                       disabled={updateFeatured.isPending}
                       onClick={() =>
@@ -219,6 +228,7 @@ export default function DashboardPage() {
                     </p>
                   </div>
                   <Button
+                    variant="primary"
                     disabled={updateFeatured.isPending}
                     onClick={() =>
                       updateFeatured.mutate({
