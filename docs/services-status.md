@@ -41,14 +41,22 @@ Nos secrets da Edge Function, usar:
 
 O remetente de teste depende das restrições da conta Resend. Para outros destinatários, verificar domínio próprio e usar remetente autorizado desse domínio.
 
+## Teste real após configuração dos secrets
+
+- Após o dono informar que cadastrou os secrets, uma mensagem de teste foi enviada pela Edge Function para `murilocastro233@gmail.com`, com a origem de produção e a chave publishable pública. Resposta HTTP 200 com `{ "ok": true }`.
+- Banco confirmou `email_status=sent`, identificador do provedor presente e uma tentativa de envio. Isso comprova aceite pelo Resend, não chegada à caixa de entrada.
+- Repetição do mesmo UUID e conteúdo retornou sucesso novamente; o banco manteve uma mensagem e uma tentativa, sem novo envio ao provedor.
+- Preflight da origem publicada retornou 204 com CORS correto; origem `https://example.org` retornou 403.
+- API pública do Auth confirmou `disable_signup=true` e `external.anonymous_users=false`. Login por e-mail continua habilitado.
+- A ferramenta de navegador ficou indisponível nesta sessão. O teste real foi por HTTP; envio pelo formulário visual, login e alterações do dashboard ainda precisam de teste no navegador.
+
 ## Pendências verificadas
 
 - Login real no frontend ainda pendente; usuário e associação administrativa já cadastrados.
-- Configuração hospedada do Auth (signup fechado, login anônimo desabilitado, Site URL e redirects) não foi alterada. O plugin disponível não oferece essas operações.
-- A API pública de configurações do Auth retornou `disable_signup=false`: novos cadastros ainda precisam ser desabilitados no painel. Login por e-mail está habilitado; o indicador de login anônimo não foi retornado nessa consulta.
+- Signup fechado e login anônimo desabilitado foram confirmados após a configuração pelo dono. Site URL e redirects ainda não foram conferidos; o plugin não oferece essas operações.
 - Lista de schemas expostos na Data API ainda precisa ser conferida no painel; `contact_private` não pode estar exposto.
-- Resend e os secrets `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` e `ALLOWED_ORIGINS` não foram configurados. A função publicada ainda não está pronta para enviar e-mail.
-- Nenhum e-mail real enviado; testes autenticados e de envio em produção, vídeo e entrega no Teams continuam pendentes.
+- Secrets cadastrados pelo dono; configuração funcional comprovada pelo envio real, sem ler ou registrar a chave privada.
+- Confirmar recebimento do e-mail, testar formulário e dashboard no navegador, gravar vídeo e entregar os links no Teams.
 
 ## Validação local
 
