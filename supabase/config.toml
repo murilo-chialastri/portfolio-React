@@ -1,0 +1,13 @@
+project_id = "cp3-portfolio"
+
+[auth]
+enable_signup = false
+enable_anonymous_sign_ins = false
+
+[auth.email]
+enable_signup = false
+
+[functions.contact]
+enabled = true
+verify_jwt = false
+entrypoint = "./functions/contact/index.js"
