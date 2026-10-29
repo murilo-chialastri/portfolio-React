@@ -1,10 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/mark.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <meta
+      name="description"
+      content="Portfólio de Murilo Castro Chialastri. Desenvolvimento back-end, projetos e ideias construídas com código."
+    />
+    <meta name="theme-color" content="#252525" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark'
+      } catch {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>Murilo Chialastri — Desenvolvedor</title>
   </head>
   <body>
     <div id="root"></div>
