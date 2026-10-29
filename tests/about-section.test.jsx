@@ -60,9 +60,13 @@ describe('Painéis sobre mim', () => {
     render(<AboutSection />)
     expect(screen.queryByRole('tablist')).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Olá, eu sou/ })).toBeVisible()
-    expect(screen.getByRole('heading', { name: /Minha caixa/ })).toBeVisible()
+    expect(
+      screen.getByRole('heading', { name: /Stack & Ferramentas/ }),
+    ).toBeVisible()
     act(() => timeline.progress.set(0.9))
     expect(screen.getByRole('heading', { name: /Olá, eu sou/ })).toBeVisible()
-    expect(screen.getByRole('heading', { name: /Minha caixa/ })).toBeVisible()
+    expect(
+      screen.getByRole('heading', { name: /Stack & Ferramentas/ }),
+    ).toBeVisible()
   })
 })

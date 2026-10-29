@@ -76,7 +76,7 @@ export default function TimelineSection({ entries = timelineEntries }) {
     >
       <div className="section-heading">
         <Reveal>
-          <p className="eyebrow">02 / Linha do tempo</p>
+          <p className="eyebrow">Linha do tempo</p>
           <h2 id="timeline-title">
             Cada passo,
             <br />

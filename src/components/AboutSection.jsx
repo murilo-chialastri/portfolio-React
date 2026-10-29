@@ -68,7 +68,7 @@ export default function AboutSection() {
         </Reveal>
         <div className="about-content">
           <Reveal>
-            <p className="eyebrow">01 / A pessoa por trás do código</p>
+            <p className="eyebrow">A pessoa por trás do código</p>
           </Reveal>
           <Root {...(sticky ? { value: tab, onValueChange: selectTab } : {})}>
             {sticky && (
@@ -121,13 +121,12 @@ export default function AboutSection() {
                 {...(sticky ? { value: 'habilidades', keepMounted: true } : {})}
               >
                 <h2>
-                  Minha caixa
-                  <br />
-                  de <span className="muted">ferramentas.</span>
+                  Stack & <br />
+                  <span className="muted">Ferramentas</span>
                 </h2>
                 <p>
-                  Escolho a ferramenta a partir do problema. Estas são algumas
-                  que fazem parte do meu caminho.
+                  Linguagens, frameworks e tecnologias que fazem parte da minha
+                  rotina de desenvolvimento.
                 </p>
                 <div className="skill-groups">
                   {Object.entries(groups).map(([label, skills]) => (
