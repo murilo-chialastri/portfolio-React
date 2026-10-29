@@ -13,10 +13,12 @@ Verificação em 29/10/2026. Este registro complementa [o guia de configuração
 - Verificador de segurança retornou apenas dois avisos informativos de RLS sem políticas nas tabelas privadas `attempts` e `deliveries`. Essa ausência é intencional para impedir acesso direto dos clientes. [Explicação do verificador](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy).
 - Edge Function `contact` publicada, versão 1, status `ACTIVE`, com `verify_jwt=false`, conforme o endpoint público definido no projeto.
 - `.env.local` local contém somente URL e chave publishable públicas; arquivo ignorado pelo Git.
+- Usuário do dono criado manualmente no Auth, com e-mail confirmado e sem bloqueio. Sua associação foi cadastrada em `admin_users` usando o UUID real do Auth, sem criar ou acessar sua senha.
+- Consulta transacional com papel `authenticated` e o UUID do dono reconheceu a associação administrativa e leu a tabela de mensagens (vazia). Isso verifica a autorização no banco; o login pelo navegador ainda não foi testado.
 
 ## Pendências verificadas
 
-- Nenhum usuário do dono encontrado em `auth.users`; cadastro administrativo e login ainda pendentes. Não foi criada senha.
+- Login real no frontend ainda pendente; usuário e associação administrativa já cadastrados.
 - Configuração hospedada do Auth (signup fechado, login anônimo desabilitado, Site URL e redirects) não foi alterada. O plugin disponível não oferece essas operações.
 - Lista de schemas expostos na Data API ainda precisa ser conferida no painel; `contact_private` não pode estar exposto.
 - Resend e os secrets `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` e `ALLOWED_ORIGINS` não foram configurados. A função publicada ainda não está pronta para enviar e-mail.
